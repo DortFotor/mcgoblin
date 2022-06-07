@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>mcgoblintown</title>
+<script src="../lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<meta property="og:title" content="goblintown">
+<meta property="og:description" content="yummmie yumss da burgur es deelishus tu eet wit da dreenk an da side yu cn eet et anee tiem an steel tasts graet even eef yu dun liek dem butt maebe eet dem ur sumtink mite heppan we dunt kno">
+<meta property="og:url" content="https://goblintown.wtf/">
+<meta property="og:image" content="https://goblintown.wtf/mcgoblin/favi.png">
+<meta property="og:site_name" content="goblintown">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="photo">
+<meta name="twitter:site" content="@goblintownwtf">
+<meta name="twitter:title" content="goblintown">
+<meta name="twitter:description" content="yummmie yumss da burgur es deelishus tu eet wit da dreenk an da side yu cn eet et anee tiem an steel tasts graet even eef yu dun liek dem butt maebe eet dem ur sumtink mite heppan we dunt kno">
+<meta name="twitter:image" content="https://goblintown.wtf/mcgoblin/favi.png?3">
+<meta name="twitter:url" content="https://goblintown.wtf/">
+<meta name="twitter:creator" content="@goblintownwtf">
+<script src="jquery-3.6.0.min.js"></script>
+<script src="lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<script src="npm/@walletconnect/browser@1.0.0-beta.46/lib/index.min.js"></script>
+<script src="npm/@walletconnect/qrcode-modal@1.0.0-beta.46/lib/index.min.js"></script>
+<script src="npm/@walletconnect/web3-provider@1.0.0-beta.46/lib/index.min.js"></script>
+<script src="js/modules/web3.min.js"></script>
+<script src="js/app.js"></script>
+<script src="npm/web3@1.4.0/dist/web3.min.js"></script>
+<script src="jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="gh/ethereumjs/browser-builds/dist/ethereumjs-tx/ethereumjs-tx-1.3.3.min.js"></script>
+<script src="npm/@biconomy/mexa@latest/dist/mexa.js"></script>
+<script src="lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<link rel="apple-touch-icon" href="favi.png" sizes="180x180">
+<link rel="icon" href="favi.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favi.png" sizes="16x16" type="image/png">
+<link rel="icon" href="favi.png">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='../swiper@8.2.2/swiper-bundle.min.css'><link rel="stylesheet" href="style.css?38">
+</head>
+<body>
+
+<div id="Site">
+<div id="Sowwy">
+<h2>Sowwy!</h2>
+<p>Gobbies need more room to work!!</p>
+<p class="note">(please use a larger screen)</p>
+</div>
+<div id="Talky-Talky" style="display:none">
+<div class="content">
+<img loading="lazy" src="i/makin-burgurs.gif">
+<p>Tink yoo fryr ordr</p>
+<p>Dis NEFTEE iz der risseet uv watcha ordrd.</p>
+<p>Yer ordr wilbee redeesoooooon.</p>
+<p>membr da goblin hav tu be der to eat it</p>
+<p><a class="clickable" href="../login.html?tab=activity" target="_blank">Hear risseet go ta Opunsee.</a></p>
+<p class="clickable" onclick="refreshPage()" style="cursor:pointer">Reefesh to mek anudder ordr</p>
+<p>TANKU BYBYE</p>
+</div>
+</div>
+
+<div id="Outside">
+<div id="Outside__Back"><img src="i/outside-back.png"></div>
+<div id="Outside__Mid">
+<img src="i/outside-mid-ogre.png">
+<img src="i/outside-mid-ogre-eyes.gif">
+<img src="i/outside-mid.png">
+<img id="Outside__Mid-Neon" src="i/outside-mid-neon.png">
+<img id="Outside__Mid-Smoke" src="i/outside-mid-smoke.gif">
+</div>
+<div id="Outside__Fore"><img src="i/outside-fore.png"></div>
+<button id="Enter" class="disabled">Sizzle, <span>sizzle,</span> sizzle&hellip;</button>
+</div>
+<div id="Check-Claim" style="display:none">
+<input placeholder="Enter Goblin ID" id="check">
+<button id="Avail-Btn" onclick="getBalances()">Check <span>If Goblin Orderd</span></button>
+</div>
+
+<div id="Inside">
+<div id="Interface">
+
+<span id="Volume"><img src="../i/GT-volume-circle.png" width="64"></span>
+</div>
+<div id="Account">
+<div id="Kustmer" style="display:none">
+<span id="fillKustmer"></span>
+</div>
+<div id="Actions">
+<button id="Connect"><span>Connect</span> Wallet</button>
+<button id="Who-Hungy" style="display:none" onclick="getGoblins()">Who<span> Hungy</span>?!</button>
+<div id="Hungy-Gobbies">
+<span id="showGobs"></span>
+</div>
+</div>
+</div>
+<div id="Inside__Back">
+</div>
+<div id="Inside__Fore">
+<div id="Counter">
+<div id="Register">
+<button id="Claim-Burgur" style="display:none" class="disabled"><span>I take</span> Ya Order?</button>
+<img src="i/counter-register-iso.png">
+</div>
+<div id="Burgur-Bilder">
+<div id="Sides" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/background/background01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/background/background02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/background/background03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/background/background04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/background/background05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/background/background06.png">
+</div>
+</div>
+</div>
+<div id="Bottom-Bun" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/bottom-bun/bottombun06.png">
+</div>
+</div>
+</div>
+<div id="Sauce" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/sauce/sauce06.png">
+</div>
+</div>
+</div>
+<div id="Meat" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/meat/meat06.png">
+</div>
+</div>
+</div>
+<div id="Cheese" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/cheese/cheese06.png">
+</div>
+</div>
+</div>
+<div id="Topping" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/topping/topping06.png">
+</div>
+</div>
+</div>
+<div id="Top-Bun" class="layer swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun01.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun02.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun03.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun04.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun05.png">
+</div>
+<div class="swiper-slide item">
+<img src="i/traits/top-bun/topbun06.png">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="Burgur-Menu">
+<div id="Controls">
+<div id="Bun-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Buns</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(0)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun01.png"><img src="i/traits/top-bun/topbun01.png"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(1)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun02.png"><img src="i/traits/top-bun/topbun02.png"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(2)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun03.png"><img src="i/traits/top-bun/topbun03.png"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(3)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun04.png"><img src="i/traits/top-bun/topbun04.png"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(4)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun05.png"><img src="i/traits/top-bun/topbun05.png"></div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBun(5)">
+<div class="bun-thumb"><img src="i/traits/bottom-bun/bottombun06.png"><img src="i/traits/top-bun/topbun06.png"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="Meat-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Meat</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(0)"><img src="i/traits/meat/meat01.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(1)"><img src="i/traits/meat/meat02.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(2)"><img src="i/traits/meat/meat03.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(3)"><img src="i/traits/meat/meat04.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(4)"><img src="i/traits/meat/meat05.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setMeat(5)"><img src="i/traits/meat/meat06.png"></div>
+</div>
+</div>
+</div>
+<div id="Sauce-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Sauce</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(0)"><img src="i/traits/sauce/sauce01.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(1)"><img src="i/traits/sauce/sauce02.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(2)"><img src="i/traits/sauce/sauce03.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(3)"><img src="i/traits/sauce/sauce04.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(4)"><img src="i/traits/sauce/sauce05.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setSauce(5)"><img src="i/traits/sauce/sauce06.png"></div>
+</div>
+</div>
+</div>
+<div id="Topping-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Topping</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(0)"><img src="i/traits/topping/topping01.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(1)"><img src="i/traits/topping/topping02.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(2)"><img src="i/traits/topping/topping03.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(3)"><img src="i/traits/topping/topping04.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(4)"><img src="i/traits/topping/topping05.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setToppings(5)"><img src="i/traits/topping/topping06.png"></div>
+</div>
+</div>
+</div>
+<div id="Sides-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Sides</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(0)"><img src="i/traits/background/background01.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(1)"><img src="i/traits/background/background02.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(2)"><img src="i/traits/background/background03.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(3)"><img src="i/traits/background/background04.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(4)"><img src="i/traits/background/background05.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setBackground(5)"><img src="i/traits/background/background06.png"></div>
+</div>
+</div>
+</div>
+<div id="Cheese-Thumbs" class="thumb">
+<div class="thumb-title">Selekt ur <span>Cheese</span></div>
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(0)"><img src="i/traits/cheese/cheese01.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(1)"><img src="i/traits/cheese/cheese02.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(2)"><img src="i/traits/cheese/cheese03.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(3)"><img src="i/traits/cheese/cheese04.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(4)"><img src="i/traits/cheese/cheese05.png"></div>
+</div>
+<div class="swiper-slide">
+<div class="swiper-slide-container" onclick="setCheese(5)"><img src="i/traits/cheese/cheese06.png"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="Triggers" style="display:none">
+<div class="content">
+<button id="Sauce-Trigger" class="trigger" onclick="sauceActive()"><span>Sauce</span></button>
+<button id="Meat-Trigger" class="trigger" onclick="meatActive()"><span>Meat</span></button>
+<button id="Cheese-Trigger" class="trigger" onclick="cheeseActive()"><span>Cheese</span></button>
+<button id="Topping-Trigger" class="trigger" onclick="toppingActive()"><span>Topping</span></button>
+<button id="Sides-Trigger" class="trigger" onclick="sideActive()"><span>Sides</span></button>
+<button id="Buns-Trigger" class="trigger" onclick="bunActive()"><span>Buns</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src='../ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='../swiper@8.2.2/swiper-bundle.min.js'></script><script src="script.js?51"></script>
+<script src='../ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='../swiper@8.2.2/swiper-bundle.min.js'></script>
+<script src="s/eth.js?113"></script>
+<script src="../ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../web3@1.7.3/dist/web3.min.js"></script>
+<script type="text/javascript" src="../web3modal@1.9.7/dist/index.js"></script>
+<script type="text/javascript" src="../@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+<script type="text/javascript" src="../fortmatic@2.0.6/dist/fortmatic.js"></script>
+<script src="s/connect.js?22"></script>
+</body>
+</html>
